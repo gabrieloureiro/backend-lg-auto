@@ -1,3 +1,4 @@
+import Routes from './routes'
 import express from 'express'
 
 const app = express()
