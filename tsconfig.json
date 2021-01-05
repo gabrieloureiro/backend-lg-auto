@@ -5,6 +5,8 @@
     "lib": [
       "ES6"
     ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowJs": true,
     "sourceMap": false,
     "outDir": "./dist",
@@ -12,19 +14,26 @@
     "removeComments": true,
     "strict": false,
     "noImplicitAny": true,
-    "moduleResolution": "node",           
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@repositories/*": [
+        "./src/repositories/*"
+      ],
     },
     "typeRoots": [
       "./node_modules/@types",
       "./src/@types"
     ],
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
