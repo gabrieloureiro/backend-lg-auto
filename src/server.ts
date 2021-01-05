@@ -1,10 +1,11 @@
 import Routes from './routes'
 import express from 'express'
 
+require('./database')
+
 const app = express()
 
-app.get('/', (req, res) => {
-  return res.json({ message: 'Ola mundo!' })
-})
+app.use(express.json())
+app.use(Routes)
 
 app.listen(3333)

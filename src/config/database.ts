@@ -5,7 +5,7 @@ module.exports = {
   password: 'lgauto2021',
   database: 'lgauto',
   define: {
-    timestamps: true,
+    timestamps: false,
     underscored: true
   }
 }
