@@ -1,8 +1,6 @@
-import { getCustomRepository } from 'typeorm'
+import { getRepository } from 'typeorm'
 
 import Bank from "@models/Bank"
-import BanksRepository from "@repositories/BanksRepository"
-
 interface Request {
   number: string
   name: string
@@ -10,7 +8,7 @@ interface Request {
 
 class CreateBankService {
   public async execute({ number, name }: Request): Promise<Bank> {
-    const banksRepository = getCustomRepository(BanksRepository)
+    const banksRepository = getRepository(Bank)
 
     const bank = banksRepository.create({
       number,

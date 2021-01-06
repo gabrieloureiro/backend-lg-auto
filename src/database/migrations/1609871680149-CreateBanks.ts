@@ -9,7 +9,7 @@ export default class CreateBanks1609871680149 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()'
@@ -17,12 +17,10 @@ export default class CreateBanks1609871680149 implements MigrationInterface {
           {
             name: 'number',
             type: 'varchar',
-            isNullable: false
           },
           {
             name: 'name',
             type: 'varchar',
-            isNullable: false
           }
         ]
       })

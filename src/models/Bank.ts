@@ -10,7 +10,6 @@ class Bank {
 
   @Column()
   name: string
-
 }
 
 export default Bank

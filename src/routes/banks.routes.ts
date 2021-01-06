@@ -1,16 +1,25 @@
 import { Router } from 'express'
-import { getCustomRepository } from 'typeorm'
+import { getRepository } from 'typeorm'
 
-import BanksRepository from '@repositories/BanksRepository'
+import Bank from '@models/Bank'
 import CreateBankService from '@services/CreateBankService'
 
 const banksRouter = Router()
 
 banksRouter.get('/', async (request, response) => {
-  const banksRepository = getCustomRepository(BanksRepository)
+  const banksRepository = getRepository(Bank)
   const banks = await banksRepository.find()
 
   return response.json(banks)
+})
+
+banksRouter.get('/:id', async (request, response) => {
+  const { id } = request.params
+
+  const banksRepository = getRepository(Bank)
+  const bank = await banksRepository.findOne(id)
+
+  return response.json(bank)
 })
 
 banksRouter.post('/', async (request, response) => {
