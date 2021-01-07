@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm'
+import { hash } from 'bcryptjs'
 
 import Admin from "@models/Admin"
 
@@ -12,10 +13,12 @@ class CreateAdminService {
   public async execute({ name, email, password }: Request): Promise<Admin> {
     const adminsRepository = getRepository(Admin)
 
+    const hashedPassword = await hash(password, 8)
+
     const admin = adminsRepository.create({
       name,
       email,
-      password
+      password: hashedPassword
     })
 
     await adminsRepository.save(admin)
