@@ -4,35 +4,30 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
-  JoinColumn
 } from 'typeorm'
 
-import Bank from './Bank'
-
-@Entity('bank_accounts')
-class BankAccount {
+@Entity('clients')
+class Client {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
   @Column()
-  id_bank: string
-
-  @OneToOne(() => Bank)
-  @JoinColumn({ name: "id_bank" })
-  bank: Bank
+  is_company: boolean
 
   @Column()
-  agency_number: string
+  company_name: string
 
   @Column()
-  operation: string
+  person_in_charge: string
 
   @Column()
-  account_number: string
+  cpf: string
 
   @Column()
-  type: string
+  cnpj: string
+
+  @Column()
+  email: string
 
   @CreateDateColumn()
   created_at: Date
@@ -41,4 +36,4 @@ class BankAccount {
   updated_at: Date
 }
 
-export default BankAccount
+export default Client

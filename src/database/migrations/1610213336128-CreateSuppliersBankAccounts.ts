@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
-export default class CreateBankAccounts1609879611787 implements MigrationInterface {
+export class CreateSuppliersBankAccounts1610213336128 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'bank_accounts',
+        name: 'suppliers_bank_accounts',
         columns: [
           {
             name: 'id',
@@ -16,6 +16,11 @@ export default class CreateBankAccounts1609879611787 implements MigrationInterfa
           },
           {
             name: 'id_bank',
+            type: 'uuid',
+            isNullable: false,
+          },
+          {
+            name: 'id_supplier',
             type: 'uuid',
             isNullable: false,
           },
@@ -49,18 +54,28 @@ export default class CreateBankAccounts1609879611787 implements MigrationInterfa
         ]
       })
     )
-    await queryRunner.createForeignKey('bank_accounts', new TableForeignKey({
-      name: 'BankProvider',
+    await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
+      name: 'BankSupplierProvider',
       columnNames: ['id_bank'],
       referencedColumnNames: ['id'],
       referencedTableName: 'banks',
       onDelete: 'RESTRICT',
       onUpdate: 'CASCADE'
     }))
+
+    await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
+      name: 'SupplierProvider',
+      columnNames: ['id_supplier'],
+      referencedColumnNames: ['id'],
+      referencedTableName: 'suppliers',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    }))
+
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('bank_accounts', 'BankProvider')
-    await queryRunner.dropTable('bank_accounts')
+    await queryRunner.dropTable('suppliers_bank_accounts')
   }
+
 }
