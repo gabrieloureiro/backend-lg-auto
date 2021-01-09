@@ -4,9 +4,14 @@ import { getRepository } from 'typeorm'
 import Bank from '@models/Bank'
 import CreateBankService from '@services/CreateBankService'
 
+import ensureAuthenticated from "@middlewares/ensureAuthenticated"
+
 const banksRouter = Router()
 
+banksRouter.use(ensureAuthenticated)
+
 banksRouter.get('/', async (request, response) => {
+
   const banksRepository = getRepository(Bank)
   const banks = await banksRepository.find()
 

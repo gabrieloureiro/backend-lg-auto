@@ -4,22 +4,21 @@ import { getRepository } from 'typeorm'
 import Admin from '@models/Admin'
 import CreateAdminService from '@services/CreateAdminService'
 
+import ensureAuthenticated from "@middlewares/ensureAuthenticated"
+
 const adminsRouter = Router()
 
-adminsRouter.get('/', async (request, response) => {
-  const adminsRepository = getRepository(Admin)
-  const admins = await adminsRepository.find()
-
-  return response.json(admins)
-})
+adminsRouter.use(ensureAuthenticated)
 
 adminsRouter.get('/:id', async (request, response) => {
   const { id } = request.params
 
   const adminsRepository = getRepository(Admin)
-  const bank = await adminsRepository.findOne(id)
+  const admin = await adminsRepository.findOne(id)
 
-  return response.json(bank)
+  delete admin.password
+
+  return response.json(admin)
 })
 
 adminsRouter.post('/', async (request, response) => {

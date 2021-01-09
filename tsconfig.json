@@ -26,6 +26,12 @@
       "@repositories/*": [
         "./src/repositories/*"
       ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@middlewares/*": [
+        "./src/middlewares/*"
+      ],
     },
     "typeRoots": [
       "./node_modules/@types",
