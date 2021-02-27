@@ -4,11 +4,20 @@ import { getRepository } from 'typeorm'
 import Admin from '@models/Admin'
 import CreateAdminService from '@services/CreateAdminService'
 
-import ensureAuthenticated from "@middlewares/ensureAuthenticated"
 
 const adminsRouter = Router()
 
-adminsRouter.use(ensureAuthenticated)
+// adminsRouter.use(ensureAuthenticated)
+
+
+// Use only on development
+// adminsRouter.get('/', async (request, response) => {
+
+//   const adminsRepository = getRepository(Admin)
+//   const admin = await adminsRepository.find()
+
+//   return response.json(admin)
+// })
 
 adminsRouter.get('/:id', async (request, response) => {
   const { id } = request.params

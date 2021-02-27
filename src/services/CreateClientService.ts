@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm'
 
-import Client from '@models/Client'
+import Client from '../models/Client'
 
 interface Request {
   is_company: boolean
@@ -11,7 +11,12 @@ interface Request {
   email?: string
 }
 
+
 class CreateClientService {
+  // constructor(
+  //   private clientsRepository: any
+  // ) { }
+
   public async execute({
     is_company,
     company_name,

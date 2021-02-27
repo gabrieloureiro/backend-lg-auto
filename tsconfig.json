@@ -38,7 +38,8 @@
       "./src/@types"
     ],
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "esModuleInterop": true,
     "resolveJsonModule": true,

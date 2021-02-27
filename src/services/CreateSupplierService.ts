@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm'
 
-import Supplier from '@models/Supplier'
+import Supplier from '../models/Supplier'
 
 interface Request {
   is_company: boolean

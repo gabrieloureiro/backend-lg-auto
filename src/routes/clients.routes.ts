@@ -4,18 +4,28 @@ import { getRepository } from 'typeorm'
 import Client from '@models/Client'
 import CreateClientService from '@services/CreateClientService'
 
-import ensureAuthenticated from "@middlewares/ensureAuthenticated"
 
 const clientsRouter = Router()
 
-clientsRouter.use(ensureAuthenticated)
+// clientsRouter.use(ensureAuthenticated)
 
 clientsRouter.get('/', async (request, response) => {
+
   const clientsRepository = getRepository(Client)
 
   const clients = await clientsRepository.find()
 
   return response.json(clients)
+})
+
+clientsRouter.get('/:id', async (request, response) => {
+  const { id } = request.params
+
+  const clientsRepository = getRepository(Client)
+
+  const client = await clientsRepository.findOne(id)
+
+  return response.json(client)
 })
 
 clientsRouter.post('/', async (request, response) => {

@@ -54,23 +54,23 @@ export class CreateSuppliersBankAccounts1610213336128 implements MigrationInterf
         ]
       })
     )
-    await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
-      name: 'BankSupplierProvider',
-      columnNames: ['id_bank'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'banks',
-      onDelete: 'RESTRICT',
-      onUpdate: 'CASCADE'
-    }))
+    // await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
+    //   name: 'BankSupplierProvider',
+    //   columnNames: ['id_bank'],
+    //   referencedColumnNames: ['id'],
+    //   referencedTableName: 'banks',
+    //   onDelete: 'RESTRICT',
+    //   onUpdate: 'CASCADE'
+    // }))
 
-    await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
-      name: 'SupplierProvider',
-      columnNames: ['id_supplier'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'suppliers',
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE'
-    }))
+    // await queryRunner.createForeignKey('suppliers_bank_accounts', new TableForeignKey({
+    //   name: 'SupplierProvider',
+    //   columnNames: ['id_supplier'],
+    //   referencedColumnNames: ['id'],
+    //   referencedTableName: 'suppliers',
+    //   onDelete: 'CASCADE',
+    //   onUpdate: 'CASCADE'
+    // }))
 
   }
 

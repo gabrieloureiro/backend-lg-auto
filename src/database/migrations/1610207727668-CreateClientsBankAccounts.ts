@@ -54,23 +54,23 @@ export class CreateClientsBankAccounts1610207727668 implements MigrationInterfac
         ]
       })
     )
-    await queryRunner.createForeignKey('clients_bank_accounts', new TableForeignKey({
-      name: 'BankClientProvider',
-      columnNames: ['id_bank'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'banks',
-      onDelete: 'RESTRICT',
-      onUpdate: 'CASCADE'
-    }))
+    // await queryRunner.createForeignKey('clients_bank_accounts', new TableForeignKey({
+    //   name: 'BankClientProvider',
+    //   columnNames: ['id_bank'],
+    //   referencedColumnNames: ['id'],
+    //   referencedTableName: 'banks',
+    //   onDelete: 'RESTRICT',
+    //   onUpdate: 'CASCADE'
+    // }))
 
-    await queryRunner.createForeignKey('clients_bank_accounts', new TableForeignKey({
-      name: 'ClientProvider',
-      columnNames: ['id_client'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'clients',
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE'
-    }))
+    // await queryRunner.createForeignKey('clients_bank_accounts', new TableForeignKey({
+    //   name: 'ClientProvider',
+    //   columnNames: ['id_client'],
+    //   referencedColumnNames: ['id'],
+    //   referencedTableName: 'clients',
+    //   onDelete: 'CASCADE',
+    //   onUpdate: 'CASCADE'
+    // }))
 
   }
 

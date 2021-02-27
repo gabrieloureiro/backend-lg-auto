@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm'
 
-import Bank from "@models/Bank"
+import Bank from "../models/Bank"
 interface Request {
   number: string
   name: string

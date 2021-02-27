@@ -1,5 +1,5 @@
 import { getRepository } from 'typeorm'
-import SupplierBankAccount from '@models/SupplierBankAccount'
+import SupplierBankAccount from '../models/SupplierBankAccount'
 
 interface Request {
   id_bank: string

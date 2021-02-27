@@ -4,11 +4,10 @@ import { getRepository } from 'typeorm'
 import Supplier from '@models/Supplier'
 import CreateSupplierService from '@services/CreateSupplierService'
 
-import ensureAuthenticated from "@middlewares/ensureAuthenticated"
 
 const suppliersRouter = Router()
 
-suppliersRouter.use(ensureAuthenticated)
+// suppliersRouter.use(ensureAuthenticated)
 
 suppliersRouter.get('/', async (request, response) => {
   const suppliersRepository = getRepository(Supplier)
